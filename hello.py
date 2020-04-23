@@ -6,7 +6,8 @@ app = Flask(__name__)
 @app.route('/hello/<name>')
 def hello(name=None):
 
-    return render_template('hello.html',title='flask test',name=name)
+    title = 'flask test'
+    return render_template('hello.html',title=title, name=name)
 
 @app.route('/good')
 def good():
