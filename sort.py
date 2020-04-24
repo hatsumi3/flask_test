@@ -1,6 +1,8 @@
 import random
 
-def sort_add_num(list_, num):
+def sort_add_num(list_=None, num=0):
+    if list_ is None:
+        list_ = []
     for x in sorted(list_):
         yield x + num
 
