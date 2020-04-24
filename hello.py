@@ -20,7 +20,7 @@ def good():
 @app.route('/issue/<int:id>')
 def issue(id):
     name = "issue" + str(id) + " is too bad."
-    gomi = 'gomi'
+    gomi = 'gomi' * 3
     return name + gomi
 
 
