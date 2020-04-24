@@ -16,5 +16,13 @@ def good():
     name = "Good"
     return name
 
+
+@app.route('/issue/<int:id>')
+def issue(id):
+    name = "issue" + str(id) + " is too bad."
+    gomi = 'gomi'
+    return name + gomi
+
+
 if  __name__ == "__main__":
     app.run(debug=True)
