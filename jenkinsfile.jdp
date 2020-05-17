@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+        docker { image 'python:3.8' }
+    }
+    stages {
+        stage('Version') {
+            steps {
+                sh 'python3 --version'
+            }
+        }
+        stages('Git Copy') {
+            deleteDir()
+            git url: 'https://github.com/hatsumi3/flask_test.git'
+            archiveArthifacts 'jenkinsfile.jdp'
+        }
+    }
+}

@@ -1,8 +1,14 @@
 import os
-from flask_blog import create_app, db
-import unittest
+import sys
 import tempfile
+import unittest
+
+# topdir = os.path.join(os.path.dirname(__file__), "..")
+# sys.path.append(topdir)
+
+from flask_blog import create_app, db
 from flask_blog.scripts.db import InitDB, DropDB
+
 
 class TestFlaskBlog(unittest.TestCase):
 
