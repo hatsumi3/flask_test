@@ -8,10 +8,23 @@ pipeline {
                 sh 'python3 --version'
             }
         }
-        stages('Git Copy') {
-            deleteDir()
-            git url: 'https://github.com/hatsumi3/flask_test.git'
-            archiveArthifacts 'jenkinsfile.jdp'
+        stage('Git Copy') {
+            steps{
+                deleteDir()
+                git url: 'https://github.com/hatsumi3/flask_test.git'
+                sh 'ls -la'
+                archiveArtifacts 'jenkinsfile.jdp'
+            }
+        }
+        stage('Install library') {
+            steps {
+                sh 'pip install -r requirement.txt'
+            }
+        }
+        stage('pytest') {
+            steps{
+                sh 'echo pytest'
+            }
         }
     }
 }
