@@ -18,7 +18,9 @@ pipeline {
         }
         stage('Install library') {
             steps {
-                sh 'pip install -r requirement.txt'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'pip install -r requirements.txt'
+                }
             }
         }
         stage('pytest') {
