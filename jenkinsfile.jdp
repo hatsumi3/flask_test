@@ -25,7 +25,7 @@ pipeline {
         }
         stage('pytest') {
             steps{
-                sh 'echo pytest'
+                sh 'python -m pytest -v -s --cov --cov-report=term-missing --cov-report=xml --junitxml=pytest.xml'
             }
         }
     }
