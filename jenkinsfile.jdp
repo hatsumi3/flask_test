@@ -19,13 +19,15 @@ pipeline {
         stage('Install library') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'pip install -r requirements.txt'
+                    sh 'pip3 install -r requirements.txt'
                 }
             }
         }
         stage('pytest') {
             steps{
-                sh 'python -m pytest -v -s --cov --cov-report=term-missing --cov-report=xml --junitxml=pytest.xml'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'python3 -m pytest -v -s --cov --cov-report=term-missing --cov-report=xml --junitxml=pytest.xml'
+                }
             }
         }
     }
